@@ -16,7 +16,6 @@ class App extends Component {
           <h1 className="App-title">Note-worthy</h1>
         </header>
         <ul>
-          {console.log('props: ', this.props)}
           {this.props.notes.map(note => {
             return (
               <li key={note.id}>

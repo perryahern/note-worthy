@@ -10,15 +10,9 @@ export const ERROR = "ERROR";
 
 export const getNotes = () => {
   const notes = notesData;
-  // console.log('notes-data: ', notesData);
-  // console.log('notes - ', notes);
   return dispatch => {
     dispatch({ type: FETCHING });
-    if (notes) {
-      // console.log('in the if, about to dispatch: ', notes);
-      dispatch({ type: FETCHED, payload: notes });
-    } else {
-      dispatch({ type: ERROR, payload: 'No data'});
-    }
+    if (notes) dispatch({ type: FETCHED, payload: notes });  // .then
+    else dispatch({ type: ERROR, payload: 'No data'});       // .catch
   }
 };

@@ -18,7 +18,7 @@ export const notesReducer = (state = initialState, action) => {
     case FETCHED:
       return {
         ...state,
-        notes: action.payload,  // had action.payload.notes originally
+        notes: action.payload,
         fetched: true,
         fetching: false,
       }
