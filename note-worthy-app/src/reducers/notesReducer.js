@@ -1,26 +1,38 @@
 // import actions
-import { FETCHING, FETCHED, ERROR } from '../actions';
-
-// import temporary data file
-// import { notesData } from '../notes-data.js';
+import {
+  FETCHING_NOTES, FETCHED_NOTES,
+  ADDING_NOTE, ADDED_NOTE,
+  ERROR,
+} from '../actions';
 
 const initialState = {
-  notes: [],
+  notes:    [],
   fetching: false,
-  fetched: false,
-  error: null,
+  fetched:  false,
+  adding:   false,
+  added:    false,
+  error:    null,
 };
 
 export const notesReducer = (state = initialState, action) => {
   switch(action.type) {
-    case FETCHING:
+    case FETCHING_NOTES:
       return { ...state, fetching: true };
-    case FETCHED:
+    case FETCHED_NOTES:
       return {
         ...state,
         notes: action.payload,
         fetched: true,
         fetching: false,
+      }
+    case ADDING_NOTE:
+      return { ...state, adding: true };
+    case ADDED_NOTE:
+      return {
+        ...state,
+        notes: action.payload,
+        added: true,
+        adding: false,
       }
     case ERROR:
       return {
