@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addNote } from '../actions';
+import { getNotes, addNote } from '../actions';
 
 class NoteInput extends Component {
   // empty state
@@ -28,7 +28,9 @@ class NoteInput extends Component {
       title: '',
       body: '',
     })
+    console.log('adding: ', author, title, body);
     this.props.addNote({ author, title, body }); // have to get the id in here
+    this.props.getNotes();
   }
 
   // render
@@ -45,10 +47,11 @@ class NoteInput extends Component {
 };
 
 // mSTP
-const mapStateToProps = state => {
-  return {
-    
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+
+//   }
+// }
 
 // connect
+export default connect(null, { getNotes, addNote })(NoteInput);

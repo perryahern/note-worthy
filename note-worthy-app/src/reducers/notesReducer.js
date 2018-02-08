@@ -7,6 +7,7 @@ import {
 
 const initialState = {
   notes:    [],
+  id: 0,
   fetching: false,
   fetched:  false,
   adding:   false,
