@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getNotes } from '../actions';
+import NoteInput from '../components/NoteInput';
 import './App.css';
 
 class App extends Component {
@@ -15,10 +16,11 @@ class App extends Component {
           <h3 className="App-subtitle">If it's of note, it's</h3>
           <h1 className="App-title">Note-worthy</h1>
         </header>
+        <NoteInput />
         <ul>
-          {this.props.notes.map(note => {
+          {this.props.notes.map((note, index) => {
             return (
-              <li key={note.id}>
+              <li key={index}>
                 <div>Author: {note.author}</div>
                 <div>Title: {note.title}</div>
                 <div>Body: {note.body}</div>
