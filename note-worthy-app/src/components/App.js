@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getNotes } from '../actions';
+import { getNotes, deleteNote } from '../actions';
 import NoteInput from '../components/NoteInput';
 import './App.css';
 
@@ -24,6 +24,7 @@ class App extends Component {
                 <div>Author: {note.author}</div>
                 <div>Title: {note.title}</div>
                 <div>Body: {note.body}</div>
+                <button onClick={() => {this.props.deleteNote(this.props.notes, index)}}>Delete note</button>
               </li>
             )
           })}
@@ -41,4 +42,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, { getNotes })(App);
+export default connect(mapStateToProps, { getNotes, deleteNote })(App);
