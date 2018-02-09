@@ -1,0 +1,7 @@
+.hideEdit {
+  display:none;
+}
+
+.showEdit {
+  display: inline-block;
+}

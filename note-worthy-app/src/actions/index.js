@@ -3,6 +3,8 @@
 
 // temp import data pre-HTTP implementation
 import { notesData } from '../notes-data.js';
+import './index.css';
+// import NoteEdit from '../components/NoteEdit';
 
 export const FETCHING_NOTES = "FETCHING_NOTES";
 export const  FETCHED_NOTES = "FETCHED_NOTES";
@@ -49,7 +51,7 @@ export const deleteNote = (notes, id) => {
 export const editNote = (notes, id) => {
   // do the edit form, change note info
   const newNotes = notes; // *** CHANGE THIS, TEMP PLACEHOLDER ***
-  console.log('Edit button clicked on note #', id);
+  console.log('***** EDIT BUTTON CLICKED ON NOTE #', id, '*****');
   return dispatch => {
     dispatch({ type: EDITING_NOTE });
     if (id !== null) dispatch({ type: EDITED_NOTE, payload: newNotes });

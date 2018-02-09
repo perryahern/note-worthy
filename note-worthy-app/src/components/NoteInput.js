@@ -5,7 +5,7 @@ import { getNotes, addNote } from '../actions';
 class NoteInput extends Component {
   // empty state
   state = {
-    id: null,
+    // id: null,
     author: '',
     title: '',
     body: '',
@@ -23,13 +23,13 @@ class NoteInput extends Component {
     event.preventDefault();
     const { author, title, body } = this.state;
     this.setState({
-      id: null,
+      // id: null,
       author: '',
       title: '',
       body: '',
     })
     console.log('adding: ', author, title, body);
-    this.props.addNote({ author, title, body }); // have to get the id in here
+    this.props.addNote({ author, title, body });
     this.props.getNotes();
   }
 

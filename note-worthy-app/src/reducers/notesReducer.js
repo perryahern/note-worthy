@@ -16,6 +16,8 @@ const initialState = {
   added:    false,
   deleting: false,
   deleted:  false,
+  editing:  false,
+  edited:   false,
   error:    null,
 };
 
@@ -27,7 +29,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         notes: action.payload,
-        fetched: true,
+        fetched:  true,
         fetching: false,
       }
     case ADDING_NOTE:
@@ -36,7 +38,7 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         notes: action.payload,
-        added: true,
+        added:  true,
         adding: false,
       }
     case DELETING_NOTE:
@@ -45,16 +47,26 @@ export const notesReducer = (state = initialState, action) => {
       return {
         ...state,
         notes: action.payload,
-        deleted: true,
+        deleted:  true,
         deleting: false,
       }
-    case ERROR:
+      case EDITING_NOTE:
+        return { ...state, editing: true }
+      case EDITED_NOTE:
+        return {
+          ...state,
+          notes: action.payload,
+          edited: true,
+          editing: false,
+        }
+      case ERROR:
       return {
         ...state,
         error: action.payload,
         fetching: false,
-        adding: false,
+        adding:   false,
         deleting: false,
+        editing:  false,
       }
     default:
       return state;

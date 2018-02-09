@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { getNotes, deleteNote, editNote } from '../actions';
 import NoteInput from '../components/NoteInput';
+import NoteEdit from '../components/NoteEdit';
 import './App.css';
 
 class App extends Component {
@@ -24,8 +25,9 @@ class App extends Component {
                 <div>Author: {note.author}</div>
                 <div>Title: {note.title}</div>
                 <div>Body: {note.body}</div>
-                <button onClick={() => {this.props.deleteNote(this.props.notes, index)}}>Delete note</button>
+                <NoteEdit />
                 <button onClick={() => {this.props.editNote(this.props.notes, index)}}>Edit note</button>
+                <button onClick={() => {this.props.deleteNote(this.props.notes, index)}}>Delete note</button>
               </li>
             )
           })}
