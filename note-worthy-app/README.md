@@ -7,4 +7,5 @@ My goal is to create a note-taking app that allows users to create, view, edit, 
 
 ---
 
-Trello board for the back-end work: https://trello.com/b/FQWo5EIG/lambda-notes-backend-perry-ahern
+Trello board for the back-end work: https://trello.com/b/FQWo5EIG
+
